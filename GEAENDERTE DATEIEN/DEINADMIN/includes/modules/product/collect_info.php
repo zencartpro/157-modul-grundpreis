@@ -6,7 +6,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: collect_info.php for Grundpreis 2022-04-12 09:26:50Z webchills $
+ * @version $Id: collect_info.php for Grundpreis 2022-04-28 16:44:50Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -23,6 +23,7 @@ $parameters = [
   'products_price' => '0.0000',
   'products_base_unit_price' => '0.00',
   'products_base_unit' => '',
+  'products_unit_pricing_measure' => '',
   'products_virtual' => DEFAULT_PRODUCT_PRODUCTS_VIRTUAL,
   'products_weight' => '0',
   'products_date_added' => '',
@@ -302,6 +303,13 @@ if (zen_get_categories_status($current_category_id) == 0 && $pInfo->products_sta
       <?php echo zen_draw_label(TEXT_PRODUCTS_BASE_UNIT, 'products_base_unit', 'class="col-sm-3 control-label"'); ?>
     <div class="col-sm-9 col-md-6">    	
         <?php echo zen_draw_input_field('products_base_unit', $pInfo->products_base_unit, 'class="form-control"'); ?>&nbsp;&nbsp;<?php echo TEXT_PRODUCTS_BASE_UNIT_INFO; ?>
+    </div>
+  </div>
+  
+  <div class="form-group">
+      <?php echo zen_draw_label(TEXT_PRODUCTS_UNIT_PRICING_MEASURE, 'products_unit_pricing_measure', 'class="col-sm-3 control-label"'); ?>
+    <div class="col-sm-9 col-md-6">    	
+        <?php echo zen_draw_input_field('products_unit_pricing_measure', $pInfo->products_unit_pricing_measure, 'class="form-control"'); ?>&nbsp;&nbsp;<?php echo TEXT_PRODUCTS_UNIT_PRICING_MEASURE_INFO; ?>
     </div>
   </div>
     

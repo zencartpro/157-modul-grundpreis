@@ -6,7 +6,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: copy_product_confirm.php for Grundpreis 2022-04-12 09:46:16Z webchills $
+ * @version $Id: copy_product_confirm.php for Grundpreis 2022-04-28 16:46:16Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -70,6 +70,7 @@ if (isset($_POST['products_id'], $_POST['categories_id'])) {
           'manufacturers_id' =>  'int',
 	  'products_base_unit_price' =>  'float',
 	  'products_base_unit',
+	  'products_unit_pricing_measure',
           'product_is_free' =>  'int',
           'product_is_call' =>  'int',
           'products_quantity_mixed' =>  'int',

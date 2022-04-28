@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Grundpreisanzeige 2.8.0 für Zen-Cart 1.5.7 deutsch</title>
+<title>Grundpreisanzeige 2.9.0 für Zen-Cart 1.5.7 deutsch</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta http-equiv="content-language" content="de">
@@ -12,7 +12,7 @@
 <body>
 <div id="wrapper">
 <div id="header">
-<h1>Grundpreisanzeige 2.8.0 für Zen Cart 1.5.7 deutsch</h1>
+<h1>Grundpreisanzeige 2.9.0 für Zen Cart 1.5.7 deutsch</h1>
 </div>
 
 <div id="slidetabsmenu" style="display: none;">
@@ -47,6 +47,8 @@ Ein einfaches Modul um das Grundpreisproblem in deutschen Shops zu lösen. <br>
 (c) 2016-2022 webchills (<a href="https://www.webchills.at" target="_blank">www.webchills.at</a>)</p>
 <p>Modifikation des Grundpreis Moduls 1.01 von joco@coors.de <br>
   <br>
+  Changelog 2.9.0 - 2022-04-28<br>
+- Unterstützung für Grundpreisfunktionalität des Google Merchant Centers durch neues Datenbankfeld products_unit_pricing_measure (Menge und Einheit des normalen Artikelpreises)<br><br/>
   Changelog 2.8.0 - 2022-03-08<br>
 - Anpassungen für 1.5.7 und PHP 8<br><br/>
   Changelog 2.7.2 - 2020-10-10<br>
@@ -162,9 +164,48 @@ Dadurch werden keine bestehenden Dateien überschrieben.</p>
   Stellen Sie nun ein, ob Sie den Grundpreis auf allen unterstützten   Seiten anzeigen wollen (Artikelliste, Neue Artikel, Alle Artikel,   Artikeldetailseite)<br>
   Oder nur auf der Artikeldetailseite</p>
 <p>5.<br>
-  Wenn Sie nun einen Artikel bearbeiten, haben Sie unterhalb des   Preiseingabefeldes zwei neue Eingabefelder: Grundpreis und Grundeinheit.<br>
+  Wenn Sie nun einen Artikel bearbeiten, haben Sie unterhalb des   Preiseingabefeldes drei neue Eingabefelder: Grundpreis, Einheit des Grundpreises und Einheit des Normalpreises<br>
   Tragen Sie bei den Artikeln, wo Sie eine Grundpreisanzeige benötigen die entsprechenden Werte ein.<br>
-  Mit dem Grundpreis wird nichts berechnet, er dient nur der Anzeige!</p>
+  Mit dem Grundpreis wird nichts berechnet, er dient nur der Anzeige!<br>
+  <br>
+  Was wie eingeben?<br>
+  <br>
+  <strong>Grundpreis: </strong><br>
+  Höhe des Grundpreises als Bruttowert. Als Trennzeichen für Euro und Cent einen Punkt verwenden. Nur mit 2 Nachkommastellen eingeben<br>
+  <br>
+  Beispiele:<br>
+  25<br>
+  49.50<br>
+  <br>
+  <strong>Einheit des Grundpreises:</strong><br>
+  Format: Menge Abstand Einheitskürzel<br>
+  <br>
+  Beispiele:<br>
+  1 kg<br>
+  500 ml<br>
+  250 g<br>
+  1 l
+  <br>
+  1.5 kg
+  <br>
+  <br>
+  <strong>Einheit des Normalpreises:</strong><br>
+  Dieses Feld wird für die Grundpreisanzeige im Shop nicht herangezogen, es ist nötig, falls Sie Ihre Artikeldaten in ein Google Merchant Center Datenfeed übernehmen wollen. Es gibt an welche Einheit der normale Grundartikel hat.<br>
+  Sie verkaufen z.B. ein Parfum in einer 150 ml Flasche.<br>
+  Dann wäre die Einheit des Normalpreises 150 ml<br>
+  Als Einheit des Grundpreises haben Sie oberhalb 100 ml eingegeben und den entsprechenden Grundpreis für 100 ml
+  <br>
+  Sollten Sie kein Google Datenfeed nutzen und das auch nicht planen, dann können Sie dieses Feld leer lassen
+  <br>
+  Format: 
+  Menge Abstand Einheitskürzel<br>
+  <br>
+  Beispiele:<br>
+  1 kg<br>
+250 ml<br>
+500 g<br>
+1 l <br>
+1.5 kg</p>
 <p>6.<br>
   OPTIONAL<br>
   Die Größe/Schriftart/Farbe der Grundpreisdarstellung auf der   Artikeldetailseite können Sie in Ihrem Stylesheet beeinflussen,   verwendet wird:<br>
@@ -178,7 +219,12 @@ Dadurch werden keine bestehenden Dateien überschrieben.</p>
 <h2>Update von älteren Versionen</h2>
 <p>Sollten Sie bereits eine ältere Version dieses Moduls verwenden, dann müssen sie die alten Datenbankeinträge nicht vorher entfernen. <br>
   Sie können vorgehen wie bei einer Neuinstallation, der Installer wird lediglich den früher vorhandenen Menüpunkt unter Konfiguration > Layouteinstellungen entfernen und ihn stattdessen in das neue Menü Konfiguration > Grundpreisanzeige verlagern. <br>
-  Ihre bereits hinterlegten Grundpreise und Grundpreiseinheiten in der Tabelle products bleiben erhalten, da der Installer prüft, ob die Spalten products_base_unit und products_base_unit_price bereits vorhanden sind.</p>
+  Ihre bereits hinterlegten Grundpreise und Grundpreiseinheiten in der Tabelle products bleiben erhalten, da der Installer prüft, ob die Spalten products_base_unit und products_base_unit_price bereits vorhanden sind.<br>
+  Seit Version 2.9.0 wird bei der Artikeleingabe für den Grundpreis ein neues Datenbankfeld in der Tabelle products vorgesehen: products_unit_pricing_measure<br>
+  Der Installer wird dieses Feld automatisch in Ihre Datenbanktabelle integrieren.<br>
+  Da Sie bisher dieses Feld noch nicht befüllt hatten, wird es in der Artikelbearbeitung bei allen Artikeln leer sein.<br>
+  Falls Sie Ihre Grundpreisartikel in ein Google Merchant Center Datnfeed übernehmen wollen, denken Sie daran das neue Eingabefeld Einheit des Normalpreises nun entsprechend auszufüllen.
+</p>
 </div>
 </div>
 </div>

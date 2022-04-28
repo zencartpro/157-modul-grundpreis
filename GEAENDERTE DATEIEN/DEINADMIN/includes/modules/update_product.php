@@ -7,7 +7,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: update_product.php for Grundpreis 2022-04-12 09:31:16Z webchills $
+ * @version $Id: update_product.php for Grundpreis 2022-04-28 16:41:16Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -37,6 +37,7 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'edit') {
     'products_price' => convertToFloat($_POST['products_price']),
     'products_base_unit_price' => convertToFloat($_POST['products_base_unit_price']),
     'products_base_unit' => zen_db_prepare_input($_POST['products_base_unit']),
+    'products_unit_pricing_measure' => zen_db_prepare_input($_POST['products_unit_pricing_measure']),
     'products_date_available' => $products_date_available,
     'products_weight' => convertToFloat($_POST['products_weight']),
     'products_status' => (int)$_POST['products_status'],
