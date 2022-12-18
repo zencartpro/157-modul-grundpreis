@@ -10,7 +10,7 @@
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_modules_products_new_listing.php for Grundpreis 2022-04-11 18:33:58Z webchills $
+ * @version $Id: tpl_modules_products_new_listing.php for Grundpreis 2022-12-18 17:33:58Z webchills $
 
  */
 ?>
@@ -48,7 +48,7 @@
       }
 
       if (PRODUCT_NEW_LIST_WEIGHT != '0' and zen_get_show_product_switch($products_new->fields['products_id'], 'weight')) {
-        $display_products_weight = '<br />' . TEXT_PRODUCTS_WEIGHT . $products_new->fields['products_weight'] . TEXT_SHIPPING_WEIGHT . str_repeat('<br class="clearBoth">', substr(PRODUCT_NEW_LIST_WEIGHT, 3, 1));
+        $display_products_weight = '<br>' . TEXT_PRODUCTS_WEIGHT . $products_new->fields['products_weight'] . TEXT_SHIPPING_WEIGHT . str_repeat('<br class="clearBoth">', substr(PRODUCT_NEW_LIST_WEIGHT, 3, 1));
       } else {
         $display_products_weight = '';
       }
