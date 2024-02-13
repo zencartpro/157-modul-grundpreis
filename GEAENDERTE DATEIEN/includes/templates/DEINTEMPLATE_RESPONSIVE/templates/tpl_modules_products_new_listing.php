@@ -6,11 +6,11 @@
  * Displays listing of New Products
  *
  * Zen Cart German Specific (158 code in 157)
- * @copyright Copyright 2003-2023 Zen Cart Development Team
+ * @copyright Copyright 2003-2024 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_modules_products_new_listing.php for Grundpreis 2023-11-04 11:18:58Z webchills $
+ * @version $Id: tpl_modules_products_new_listing.php for Grundpreis 2024-02-13 15:18:58Z webchills $
 
  */
 ?>
@@ -90,7 +90,7 @@
 
       if ((PRODUCT_NEW_LIST_PRICE != '0' and zen_get_products_allow_add_to_cart($products_new->fields['products_id']) == 'Y') and zen_check_show_prices() == true) {
         $products_price = zen_get_products_display_price($products_new->fields['products_id']);
-        $display_products_price = '<b>' . TEXT_PRICE . '</b> ' . $products_price . str_repeat('<br />', substr(PRODUCT_NEW_LIST_PRICE, 3, 1)) . (zen_get_show_product_switch($products_new->fields['products_id'], 'ALWAYS_FREE_SHIPPING_IMAGE_SWITCH') ? (zen_get_product_is_always_free_shipping($products_new->fields['products_id']) ? TEXT_PRODUCT_FREE_SHIPPING_ICON . '<br>' : '') : '');
+        $display_products_price = '<b>' . TEXT_PRICE . '</b> ' . $products_price . str_repeat('<br>', substr(PRODUCT_NEW_LIST_PRICE, 3, 1)) . ($flag_show_free_shipping_image ? (zen_get_product_is_always_free_shipping($products_new->fields['products_id']) ? TEXT_PRODUCT_FREE_SHIPPING_ICON . '<br>' : '') : '');
         
         if (SHOW_BASE_UNIT_PRICE == 1 && zen_not_null($products_new->fields['products_base_unit_price']) && $products_new->fields['products_base_unit_price'] <> 0) {
         
