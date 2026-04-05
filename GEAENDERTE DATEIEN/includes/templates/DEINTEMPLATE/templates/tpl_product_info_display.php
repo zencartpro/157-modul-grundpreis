@@ -1,15 +1,15 @@
 <?php
 /**
  * Page Template
- * Zen Cart German Specific (158 code in 157)
+ * Zen Cart German Specific (zencartpro adaptations / 200 code in 157)
  * Loaded automatically by index.php?main_page=product_info.
  * Displays details of a typical product
  *
- * @copyright Copyright 2003-2023 Zen Cart Development Team
+ * @copyright Copyright 2003-2026 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_product_info_display.php for Grundpreis 2023-11-04 09:47:36Z webchills $
+ * @version $Id: tpl_product_info_display.php for Grundpreis 2026-04-05 18:57:36Z webchills $
  */
 
 //require(DIR_WS_MODULES . '/debug_blocks/product_info_prices.php');
@@ -17,7 +17,7 @@
 <div class="centerColumn" id="productGeneral">
 
 <!--bof Form start-->
-<?php echo zen_draw_form('cart_quantity', zen_href_link(zen_get_info_page($_GET['products_id']), zen_get_all_get_params(array('action')) . 'action=add_product', $request_type), 'post', 'enctype="multipart/form-data"') . "\n"; ?>
+<?php echo zen_draw_form('cart_quantity', zen_href_link(zen_get_info_page($_GET['products_id']), zen_get_all_get_params(array('action')) . 'action=add_product', $request_type), 'post', 'enctype="multipart/form-data" id="addToCartForm"') . "\n"; ?>
 <!--eof Form start-->
 
 <?php if ($messageStack->size('product_info') > 0) echo $messageStack->output('product_info'); ?>
@@ -74,7 +74,7 @@ require($template->get_template_dir('/tpl_products_next_previous.php',DIR_WS_TEM
 <!--bof base unit price  -->
 <?php if (SHOW_BASE_UNIT_PRICE == 1 || SHOW_BASE_UNIT_PRICE == 2) { ?>
 <div id="baseunitprice">
-<?php if (!empty ($products_base_price) && $products_base_price <> 0) {
+<?php if (!empty ($product_info->fields['products_base_unit_price']) && $product_info->fields['products_base_unit_price'] <> 0) {
 		  echo TEXT_PRODUCTS_BASE_UNIT_PRICE . ' ' . $currencies->format(zen_round($product_info->fields['products_base_unit_price'],3)).'/'.$product_info->fields['products_base_unit'].'<br>';
   }
 ?>
